@@ -1,6 +1,7 @@
 package com.maxhayday.hibernate;
 
 import com.maxhayday.hibernate.view.observer.*;
+import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 import java.sql.SQLException;

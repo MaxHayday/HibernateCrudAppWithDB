@@ -8,15 +8,14 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "Users",schema = "public")
 @Builder(toBuilder = true)
 @Getter
 @Setter
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -32,6 +31,7 @@ public class User {
     @JoinColumn(name = "region_id")
     private Region region;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private Role role;
 

@@ -7,15 +7,15 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Regions")
+@Table(name = "Regions",schema = "public")
 @Builder(toBuilder = true)
 @Getter
 @Setter
 public class Region {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "regions_id_seq")
     private Long id;
 
     @Column(name = "name")

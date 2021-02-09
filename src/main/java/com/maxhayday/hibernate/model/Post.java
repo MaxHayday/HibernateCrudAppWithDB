@@ -10,15 +10,14 @@ import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "Posts")
+@Table(name = "Posts",schema = "public")
 @Builder(toBuilder = true)
 @Getter
 @Setter
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "content")

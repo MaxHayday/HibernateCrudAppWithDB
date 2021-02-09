@@ -11,10 +11,13 @@
         <id name="id" type="java.lang.Long" column="id">
             <generator class="native"/>
         </id>
+        <component name="region" class="com.maxhayday.hibernate.model.Region">
+            <property name="id" column="region_id"/>
+        </component>
         <property name="name" column="name" type="string"/>
         <property name="lastName" column="surname" type="string"/>
         <property name="role" column="role" type="string"/>
-        <property name="region" column="region_id" type="Long"/>
+<!--        <property name="region" column="region_id" type="Long"/>-->
     </class>
 
 </hibernate-mapping>

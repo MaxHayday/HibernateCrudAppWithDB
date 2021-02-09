@@ -1,5 +1,7 @@
 package com.maxhayday.hibernate.view.observer;
 
+import com.maxhayday.hibernate.Connection;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,13 +10,14 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MenuObserved implements Observed{
+public class MenuObserved implements Observed {
     private Long id = 0L;
     private String data;
 
     private List<ViewObserver> subscribers = new ArrayList<>();
 
     public void showMenu() throws IOException, ParseException, SQLException, ClassNotFoundException {
+        Connection.buildSession();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             do {
                 System.out.println("\n----------------------------------------- Choose one of options ----------------------------------------");
@@ -94,7 +97,7 @@ public class MenuObserved implements Observed{
                 }
             } while (!data.equals("exit"));
         } finally {
-//            ConnectionUtils.closeConnection();
+            Connection.closeSession();
             System.out.println("Connection is closed.");
         }
     }
