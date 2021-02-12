@@ -16,6 +16,9 @@
         </component>
         <property name="name" column="name" type="string"/>
         <property name="lastName" column="surname" type="string"/>
+<!--        <component name="role" class="com.maxhayday.hibernate.model.Role">-->
+<!--            <property name="role" column="role"/>-->
+<!--        </component>-->
         <property name="role" column="role" type="string"/>
 <!--        <property name="region" column="region_id" type="Long"/>-->
     </class>
