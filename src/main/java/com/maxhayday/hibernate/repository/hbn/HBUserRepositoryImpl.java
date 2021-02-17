@@ -15,7 +15,7 @@ import java.util.List;
 
 public class HBUserRepositoryImpl implements UserRepository {
     private User userTmp = null;
-    private List<User> userList = null;
+    private List userList = null;
     private Transaction transaction = null;
 
 
@@ -62,7 +62,7 @@ public class HBUserRepositoryImpl implements UserRepository {
         Session session = Connection.sessionFactory.openSession();
         transaction = session.beginTransaction();
         userList = new ArrayList<>();
-        userList = session.createQuery("FROM User").list();
+        userList = (List<User>) session.createQuery("FROM User u LEFT JOIN FETCH u.posts").list();
         session.close();
         return userList;
     }

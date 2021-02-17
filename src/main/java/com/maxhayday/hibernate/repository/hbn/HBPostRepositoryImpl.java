@@ -61,7 +61,7 @@ public class HBPostRepositoryImpl implements PostRepository {
         List<Post> postListOfUserId = new ArrayList<>();
         for (Post p :
                 postList) {
-            if (p.getUser_id() == id) {
+            if (p.getUser().getId() == id) {
                 postListOfUserId.add(p);
             }
         }
@@ -98,7 +98,7 @@ public class HBPostRepositoryImpl implements PostRepository {
         Session session = Connection.sessionFactory.openSession();
         transaction = session.beginTransaction();
         postTmp = session.get(Post.class, id);
-        session.delete(postTmp.getUser_id());
+        session.delete(postTmp.getUser());
         transaction.commit();
         session.close();
     }

@@ -8,26 +8,27 @@
             org.hibernate.dialect.MySQL5Dialect
         </property>
         <property name="hibernate.connection.driver_class">
-<!--            org.postgresql.Driver-->
-            com.mysql.jdbc.Driver
+            org.postgresql.Driver
+<!--            com.mysql.jdbc.Driver-->
         </property>
 
         <property name="hibernate.connection.url">
-<!--            jdbc:postgresql://localhost:5432/hibernate-->
-            jdbc:mysql://localhost:3306/crud_app
+            jdbc:postgresql://localhost:5432/hibernate
+<!--            jdbc:mysql://localhost:3306/crud_app-->
         </property>
         <property name="hibernate.connection.username">
-<!--            postgres-->
-            root
+            postgres
+<!--            root-->
         </property>
         <property name="hibernate.connection.password">
-<!--            123-->
+            123
         </property>
-
+<!--<property name="hibernate.hbm2ddl.auto">update</property>-->
+        <property name="show_sql">true</property>
         <!-- List of XML mapping files -->
-        <mapping resource="Post.hbm.xml"/>
-        <mapping resource="Region.hbm.xml"/>
-        <mapping resource="User.hbm.xml"/>
+        <mapping class="com.maxhayday.hibernate.model.User"/>
+        <mapping class="com.maxhayday.hibernate.model.Region"/>
+        <mapping class="com.maxhayday.hibernate.model.Post"/>
 
     </session-factory>
 </hibernate-configuration>

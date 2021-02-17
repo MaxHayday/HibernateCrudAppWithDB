@@ -56,7 +56,7 @@ public class UserController {
             user = userService.save(user);
             for (String p :
                     posts) {
-                post = Post.builder().id(id).content(p).created(Timestamp.valueOf(LocalDateTime.now())).updated(null).user_id(user.getId()).build();
+                post = Post.builder().id(id).content(p).created(Timestamp.valueOf(LocalDateTime.now())).updated(null).user(user).build();
                 postService.save(post);
                 postList.add(post);
             }
@@ -108,7 +108,7 @@ public class UserController {
             postList = user.getPosts();
             for (Post p :
                     postList) {
-                postService.deleteByUserId(p.getUser_id());
+                postService.deleteByUserId(p.getUser().getId());
             }
             userService.deleteById(id);
         } catch (IOException | SQLException | ClassNotFoundException | ParseException e) {
